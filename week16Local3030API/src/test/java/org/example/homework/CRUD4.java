@@ -34,8 +34,8 @@ public class CRUD4 {
     @Test
     public void createCategory() {
         String jsondata = "{\n" +
-                "  \"name\": \"Pet\",\n" +
-                "  \"id\": \"1093\"\n" +
+                "  \"name\": \"string\",\n" +
+                "  \"id\": \"adxq103\"\n" +
                 "}";
         validatableResponse = given()
                 .baseUri("http://localhost:3030/categories")
@@ -48,9 +48,9 @@ public class CRUD4 {
 
                 // THEN
                 .then()
-                .statusCode(400);
-        // .body("name", equalTo("Pet"));
-
+                .statusCode(201)
+         .body("name", equalTo("string"))
+                .body("id", equalTo("adxq103"));
         System.out.println(validatableResponse.extract().asPrettyString());
     }
 
